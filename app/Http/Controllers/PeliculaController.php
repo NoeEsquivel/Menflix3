@@ -46,4 +46,16 @@ class PeliculaController extends Controller
     }
 }
 
+public function relacionadas($nombre)
+{
+    
+    $peliculasRelacionadas = Pelicula::where('nombre', 'LIKE', '%' . $nombre . '%')
+        ->where('nombre', '!=', $nombre) // Excluir la película actual
+        ->limit(5) // Puedes ajustar la cantidad de resultados que desees mostrar
+        ->get();
+
+    return response()->json($peliculasRelacionadas);
+}
+
+
 }

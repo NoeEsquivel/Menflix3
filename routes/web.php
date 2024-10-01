@@ -23,3 +23,5 @@ use App\Http\Controllers\PeliculaController;
 Route::get('/contenido/{id}', [PeliculaController::class, 'show'])->name('contenido.show');
 Route::post('/comentarios/{idpelicula}', [PeliculaController::class, 'storeComentario'])->name('comentarios.store');
 Route::get('/buscar', [PeliculaController::class, 'search'])->name('contenido.search');
+Route::get('/api/peliculas-relacionadas/{nombre}', [PeliculaController::class, 'relacionadas']);
+

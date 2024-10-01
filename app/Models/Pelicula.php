@@ -27,6 +27,9 @@ class Pelicula extends Model
         'director',
         'calificacion',
         'portada',
-        'video'
+        'video',
+        'protagonista',
+        'biografia',
+        'foto'
     ];
 }
