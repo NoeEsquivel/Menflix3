@@ -66,7 +66,6 @@
                     <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Search" required>
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
-
             </div>
         </div>
     </nav>
@@ -95,43 +94,61 @@
             </div>
         </div>
 
-        <!-- Aquí se incluye el componente del actor -->
+        <!-- Botones para reportar problemas -->
+        <div class="mb-4 text-center">
+            <button class="btn" style="background-color: orange; color: white;">
+                Reportar un problema desde aquí
+            </button>
+            <!-- Botón para redirigir a la vista de quejas -->
+            <button class="btn" style="background-color: yellow; color: black;">
+                <a href="{{ route('quejas', ['idpelicula' => $pelicula->id, 'nombre_pelicula' => $pelicula->nombre]) }}" target="_blank" style="text-decoration: none; color: black;">
+                    Reportar un problema desde una nueva ventana
+                </a>
+            </button>
+        </div>
+
+        <!-- Vue app div -->
         <div id="app">
+            <!-- Componente Actor -->
             <actor 
                 :protagonista="'{{ $pelicula->protagonista }}'" 
                 :foto="'{{ $pelicula->foto }}'"
                 :biografia="'{{ $pelicula->biografia }}'">
             </actor>
+
+            <!-- Componente Relacionados -->
             <relacionados :nombre-pelicula="'{{ $pelicula->nombre }}'"></relacionados>
-        <!-- Sección de comentarios -->
-        <div class="container mt-5">
-            <h3>Comentarios</h3>
 
-            <!-- Mostrar comentarios existentes -->
-            <div class="mb-4">
-                @foreach ($comentarios as $comentario)
-                    <div class="border rounded p-3 mb-3 bg-dark text-white">
-                        <p>{{ $comentario->comentario }}</p>
-                        <small>{{ $comentario->created_at }}</small>
-                    </div>
-                @endforeach
-            </div>
+            <!-- Sección de comentarios -->
+            <div class="container mt-5">
+                <h3>Comentarios</h3>
 
-            <!-- Formulario para agregar nuevo comentario -->
-            <form action="{{ route('comentarios.store', ['idpelicula' => $pelicula->idpeliculas]) }}" method="POST">
-                @csrf
-                <div class="mb-3">
-                    <label for="comentario" class="form-label">Deja un comentario:</label>
-                    <textarea class="form-control" id="comentario" name="comentario" rows="3" required></textarea>
+                <!-- Mostrar comentarios existentes -->
+                <div class="mb-4">
+                    @foreach ($comentarios as $comentario)
+                        <div class="border rounded p-3 mb-3 bg-dark text-white">
+                            <p>{{ $comentario->comentario }}</p>
+                            <small>{{ $comentario->created_at }}</small>
+                        </div>
+                    @endforeach
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
-        <br><br>
-        <info></info>
+
+                <!-- Formulario para agregar nuevo comentario -->
+                <form action="{{ route('comentarios.store', ['idpelicula' => $pelicula->idpeliculas]) }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="comentario" class="form-label">Deja un comentario:</label>
+                        <textarea class="form-control" id="comentario" name="comentario" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+            
+            <!-- Componente Info -->
+            <info></info>
         </div>
     </div>
-  
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ mix('js/app.js') }}"></script>

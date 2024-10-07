@@ -200,6 +200,7 @@
     </div>
 </div>
 <div id="app">
+    <br><br>
     <info></info>
 </div>
     <!-- Bootstrap JS -->
