@@ -49,7 +49,7 @@
  <!-- Navbar -->
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url('/') }}">Menflix</a>
+            <a class="navbar-brand" href="{{ url('/inicio') }}">Menflix</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,8 +59,11 @@
                         <a class="nav-link" href="#">Películas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Series</a>
+                        <a class="nav-link" href="/anime">Animes</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="https://www.facebook.com/Nekotaku.ShopGT/?locale=es_LA">Neko</a>
+                </li>
                 </ul>
                 <form class="d-flex" action="{{ route('contenido.search') }}" method="GET">
                     <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Search" required>

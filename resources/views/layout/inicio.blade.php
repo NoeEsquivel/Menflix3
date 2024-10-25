@@ -9,7 +9,7 @@
     <!-- Estilos personalizados -->
     <style>
         body {
-            background-color: #000;
+            background: linear-gradient(to bottom right, #000, #434343); /* Cambia los colores a tu preferencia */
             color: #fff;
         }
         .navbar-brand {
@@ -44,10 +44,10 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url('/') }}">Menflix</a>
+            <a class="navbar-brand" href="{{ url('/inicio') }}">Menflix</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,14 +57,17 @@
                         <a class="nav-link" href="#">Películas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Series</a>
+                        <a class="nav-link" href="/anime">Animes</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="{{ route('contenido.search') }}" method="GET">
+                <form class="d-flex me-3" action="{{ route('contenido.search') }}" method="GET">
                     <input class="form-control me-2" type="search" name="query" placeholder="Buscar" aria-label="Search" required>
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
-
+                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-danger">Cerrar sesión</button>
+                </form>
             </div>
         </div>
     </nav>

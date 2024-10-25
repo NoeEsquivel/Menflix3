@@ -47,7 +47,7 @@ export default {
     };
   },
   methods: {
-    // Método para enviar el reporte
+ 
     enviarReporte() {
       const reporte = {
         idpelicula: this.idpelicula,          
