@@ -62,7 +62,7 @@
                         <a class="nav-link" href="/anime">Animes</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" href="https://www.facebook.com/Nekotaku.ShopGT/?locale=es_LA">Neko</a>
+                    <a class="nav-link active" href="https://nekoshopgt.store/">Neko</a>
                 </li>
                 </ul>
                 <form class="d-flex" action="{{ route('contenidoa.search') }}" method="GET">
@@ -149,6 +149,7 @@
             
             <!-- Componente Info -->
             <info></info>
+            <mangos></mangos>
         </div>
     </div>
 

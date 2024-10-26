@@ -10,7 +10,7 @@
     <!-- Estilos personalizados -->
     <style>
         body {
-            background-color: #000;
+            background: linear-gradient(to bottom right, #000, #434343); /* Cambia los colores a tu preferencia */
             color: #fff;
         }
         .navbar-brand {
