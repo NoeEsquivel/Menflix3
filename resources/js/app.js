@@ -3,6 +3,8 @@ import Info from './components/info.vue';
 import Actor from './components/actor.vue';
 import Relacionados from './components/relacionados.vue';
 import Reporte from './components/reporte.vue';
+import Apineko from './components/apineko.vue';
+import Mangos from './components/mangos.vue';
 import axios from 'axios';
 
 new Vue({
@@ -17,6 +19,8 @@ new Vue({
         Actor,
         Relacionados,
         Reporte,
+        Mangos,
+        Apineko
     },
     created() {
         this.getKeeps(); // Llamada inicial para cargar datos si es necesario
